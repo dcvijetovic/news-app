@@ -1,0 +1,78 @@
+.article {
+  position: relative;
+  background-color: white;
+  height: 16rem;
+  border-radius: 8px;
+  position: relative;
+  -webkit-box-shadow: 1px 2px 5px 0px rgba(200, 202, 209, 0.5);
+  -moz-box-shadow: 1px 2px 5px 0px rgba(200, 202, 209, 0.5);
+  box-shadow: 1px 2px 5px 0px rgba(200, 202, 209, 0.5);
+
+  .favoriteButton {
+    position: absolute;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 100;
+    right: 0.5rem;
+    top: 0.5rem;
+
+    svg {
+      font-size: 1.75rem;
+      color: white;
+    }
+  }
+
+  .image {
+    position: absolute;
+    top: 0;
+    height: 90%;
+    width: 100%;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-top-right-radius: 8px;
+      border-top-left-radius: 8px;
+    }
+  }
+
+  .articleHeader {
+    position: absolute;
+    bottom: 0;
+    height: 7rem;
+    width: 100%;
+    background-color: #fff;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .articleTitle {
+      display: flex;
+      flex-direction: column;
+
+      h4 {
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #1e71bb;
+        font-size: 0.75rem;
+        margin-bottom: 0.25rem;
+      }
+
+      h2 {
+        font-weight: 500;
+        font-size: 1rem;
+      }
+    }
+
+    p {
+      font-size: 0.75rem;
+      color: #1d1d1b;
+    }
+  }
+
+  
+}

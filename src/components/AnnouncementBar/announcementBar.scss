@@ -1,0 +1,86 @@
+.announcementBar {
+  height: 3.75rem;
+  background: rgb(187, 30, 30);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(187, 30, 30, 1) 0%,
+    rgba(178, 25, 25, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(187, 30, 30, 1) 0%,
+    rgba(178, 25, 25, 1) 100%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(187, 30, 30, 1) 0%,
+    rgba(178, 25, 25, 1) 100%
+  );
+
+  .announcementBarWrapper {
+    width: 100%;
+    max-width: 1095px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+
+    .announcement {
+      display: flex;
+
+      h3 {
+        font-weight: 600;
+        font-size: 1rem;
+        margin-right: 2.75rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      margin-right: 2rem;
+
+      .buttonPrimary {
+        background-color: #fff;
+        border-radius: 8px;
+        height: 2.5rem;
+        color: #1d1d1b;
+        padding: 0 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .buttonSecondary {
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-left: 1.5rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .announcementBar {
+    .announcementBarWrapper {
+      padding: 0 1.5rem;
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .announcementBar {
+    display: none;
+  }
+}

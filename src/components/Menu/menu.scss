@@ -1,0 +1,47 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+
+  h1 {
+    color: #1d1d1b;
+    font-weight: 900;
+    margin-top: 25%;
+    margin-bottom: 4rem;
+
+    span {
+      color: #bb1e1e;
+    }
+  }
+
+  .searchBar {
+    width: 90%;
+    height: 3.25rem;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    svg {
+      fill: #666;
+      margin-left: 0.75rem;
+    }
+
+    input {
+      width: 100%;
+      margin: 0 0.75rem;
+      font-size: 1rem;
+      color: #1d1d1b;
+      height: 3rem;
+    }
+  }
+}

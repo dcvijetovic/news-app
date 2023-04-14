@@ -1,0 +1,62 @@
+nav {
+  display: flex;
+  flex-direction: column;
+  padding-right: 1.5rem;
+
+  a {
+    height: 63px;
+    width: 63px;
+    border-radius: 5px;
+    font-size: 0.625rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms ease;
+    font-weight: 500;
+    color: #666;
+
+    svg {
+      fill: #666;
+      margin-bottom: 0.25rem;
+    }
+
+    &:hover {
+      background-color: #fff;
+      color: #bb1e1e;
+
+      svg {
+        fill: #bb1e1e;
+      }
+    }
+  }
+
+  .active {
+    background-color: #fff;
+    color: #bb1e1e;
+
+    svg {
+      fill: #bb1e1e;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-self: center;
+
+    a {
+      height: 95px;
+      width: 95px;
+
+      svg {
+        height: 24px;
+        width: 24px;
+      }
+    }
+  }
+}
