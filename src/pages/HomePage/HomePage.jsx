@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { AiFillStar } from 'react-icons/ai';
 import FavoriteArticles from '../../components/FavoriteArticles/FavoriteArticles';
+import Ad from '../../components/Ad/Ad';
+import BreakingNews from '../../components/BreakingNews/BreakingNews';
 
 const useWindowWidth = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -33,19 +35,32 @@ const HomePage = () => {
 
   const url = `https://newsapi.org/v2/top-headlines/sources?apiKey=ea853e3ecde342bb9dc1f21327164c93`;
 
-  const fetchArticles = () => {
-    fetch(url)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setArticles(data);
-      });
-  };
-
   useEffect(() => {
     fetchArticles();
   }, []);
+
+  const fetchArticles = async () => {
+    const response = await fetch(url);
+    const data = await response.json();
+    const articlesWithAds = insertAds(data.sources);
+    setArticles(articlesWithAds);
+  };
+
+  const insertAds = (articles) => {
+    const adInterval = 6;
+    const breakingNewsIndex = 3;
+    const newArray = [...articles];
+
+    newArray.splice(breakingNewsIndex, 0, {
+      type: 'breaking-news',
+    });
+
+    for (let i = adInterval; i < newArray.length; i += adInterval) {
+      newArray.splice(i, 0, { type: 'ad' });
+    }
+
+    return newArray;
+  };
 
   const handleAddToFavorites = (article) => {
     setFavorites((prevFavorites) => [...prevFavorites, article]);
@@ -76,22 +91,30 @@ const HomePage = () => {
               ) : (
                 ''
               )}
-              {articles?.sources
+              {articles
                 ?.filter((val) => {
                   if (query === '') {
                     return val;
                   } else if (
-                    val.description.toLowerCase().includes(query.toLowerCase())
+                    val.description?.toLowerCase().includes(query.toLowerCase())
                   ) {
                     return val;
                   }
                 })
-                .map((article, index) => (
-                  <Article
-                    key={index}
-                    article={article}
-                    handleAddToFavorites={handleAddToFavorites}
-                  />
+                .map((item, index) => (
+                  <div key={index}>
+                    {item.type === 'ad' ? (
+                      <Ad />
+                    ) : item.type === 'breaking-news' ? (
+                      <BreakingNews />
+                    ) : (
+                      <Article
+                        key={index}
+                        article={item}
+                        handleAddToFavorites={handleAddToFavorites}
+                      />
+                    )}
+                  </div>
                 ))}
             </>
           );
@@ -117,22 +140,30 @@ const HomePage = () => {
 
           <LatestNews />
 
-          {articles?.sources
+          {articles
             ?.filter((val) => {
               if (query === '') {
                 return val;
               } else if (
-                val.description.toLowerCase().includes(query.toLowerCase())
+                val.description?.toLowerCase().includes(query.toLowerCase())
               ) {
                 return val;
               }
             })
-            .map((article, index) => (
-              <Article
-                key={index}
-                article={article}
-                handleAddToFavorites={handleAddToFavorites}
-              />
+            .map((item, index) => (
+              <div key={index}>
+                {item.type === 'ad' ? (
+                  <Ad />
+                ) : item.type === 'breaking-news' ? (
+                  <BreakingNews />
+                ) : (
+                  <Article
+                    key={index}
+                    article={item}
+                    handleAddToFavorites={handleAddToFavorites}
+                  />
+                )}
+              </div>
             ))}
         </>
       );

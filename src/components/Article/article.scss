@@ -22,6 +22,19 @@
     }
   }
 
+  .adBadge {
+    position: absolute;
+    background-color: #bb1e1e;
+    color: #fff;
+    border-radius: 4px;
+    z-index: 100;
+    left: 0.75rem;
+    top: 0.75rem;
+    padding: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
   .image {
     position: absolute;
     top: 0;
@@ -73,6 +86,39 @@
       color: #1d1d1b;
     }
   }
+}
 
+.breakingNews {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1d1d1b;
+  height: 16rem;
+  border-radius: 8px;
+  position: relative;
+  -webkit-box-shadow: 1px 2px 5px 0px rgba(200, 202, 209, 0.5);
+  -moz-box-shadow: 1px 2px 5px 0px rgba(200, 202, 209, 0.5);
+  box-shadow: 1px 2px 5px 0px rgba(200, 202, 209, 0.5);
+  color: #fff;
+  gap: 0.5rem;
+
+  span {
+    background-color: #bb1e1e;
+    border-radius: 1px;
+    padding: 0.25rem 0.35rem;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 600;
   
+  }
+
+  h2 {
+    text-align: center;
+  
+  }
+
+  p {
+    font-size: 0.75rem;
+  }
 }
